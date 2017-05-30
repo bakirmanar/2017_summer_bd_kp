@@ -1,0 +1,143 @@
+<div class="account">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="you-created">
+                    <div class="title">
+                        <p class="title-name">Created</p>
+                    </div>
+                    <div class="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg input-search" placeholder="......"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-lg btn-bit" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="created-carousel">
+                        <div>
+                            <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                                    <div class="carousel-caption" ng-style="ideaStyles.styles">
+                                        <div class="marks" ng-style="column.mark"></div>
+                                        <div class="envelope">
+                                            <h4>Secret {{slide.title}}</h4>
+                                            <p>{{slide.text}}</p>
+                                        </div>
+                                        <div class="stamp" ng-style="column.stamp"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="panel-group" id="created-accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#created-accordion" href="./account.html#createCollapseOne">First secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="createCollapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>great secret</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#created-accordion" href="./account.html#createCollapseTwo">Second secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="createCollapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>bad secret</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#created-accordion" href="./account.html#createCollapseThree">Last secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="createCollapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>this my secret</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="you-purchased">
+                    <div class="title">
+                        <p class="title-name">Purchased</p>
+                    </div>
+                    <div class="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg input-search" placeholder="......"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-lg btn-bit" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-group" id="purchased-accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#purchased-accordion" href="./account.html#collapseOne">First
+                                        secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>great secret</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#purchased-accordion" href="./account.html#collapseTwo">Second
+                                        secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>bad secret</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#purchased-accordion" href="./account.html#collapseThree">Last
+                                        secret</a>
+                                    <a class="remove"><i class="glyphicon glyphicon-remove"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>this my secret</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

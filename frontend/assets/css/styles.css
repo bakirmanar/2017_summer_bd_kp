@@ -1,0 +1,591 @@
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+@font-face {
+  font-family: PatuaOne;
+  src: url('../fonts/PatuaOne-Regular.ttf');
+}
+@font-face {
+  font-family: Roboto;
+  src: url('../fonts/roboto.regular.ttf');
+}
+.navbar-login {
+  width: 320px;
+  left: 100%;
+  margin-left: -400px;
+}
+.navbar-login .cloud {
+  position: relative;
+  height: 300px;
+  right: 0;
+  margin-top: 10%;
+  background: #ccc;
+  border-radius: 50%;
+}
+.navbar-login .cloud .login {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: 15px;
+  text-align: center;
+  z-index: 100;
+  cursor: pointer;
+}
+.navbar-login .cloud .login .name {
+  position: absolute;
+  top: 55px;
+  left: 50px;
+}
+.navbar-login .cloud .login .name h2 {
+  font-family: Roboto;
+  font-size: 2.6rem;
+  color: #0d47a1;
+  opacity: 0.83;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 5px;
+}
+.navbar-login .cloud .login .button {
+  position: absolute;
+  top: 55px;
+  left: 50px;
+}
+.navbar-login .cloud .login .button:last-child {
+  left: 190px;
+}
+.navbar-login .cloud .login .button a {
+  font-family: Roboto;
+  font-size: 2.6rem;
+  color: #0d47a1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.navbar-login .cloud .login .button a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+.navbar-login .cloud svg {
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+.idea-page {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background-size: contain;
+}
+.idea-page #custom-search-input {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 100;
+}
+.idea-page #random-idea {
+  height: 100%;
+}
+.idea-page #random-idea .row {
+  height: 20%;
+  margin-top: 1.5%;
+}
+.idea-page #random-idea .layer {
+  position: relative;
+  cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 230px;
+  width: 360px;
+  text-align: center;
+  border: 3px solid;
+  transition-duration: 1.5s;
+}
+.idea-page #random-idea .layer .marks {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
+.idea-page #random-idea .layer .stamp {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  margin: 10px;
+  top: 15%;
+  right: 15%;
+}
+.idea-page #random-idea .layer .name-idea {
+  font-family: PatuaOne;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  top: 15px;
+}
+.idea-page #random-idea .layer .remove-idea,
+.idea-page #random-idea .layer .buy-idea,
+.idea-page #random-idea .layer .full-name-idea {
+  display: none;
+  text-align: center;
+}
+.idea-page #random-idea .layer .remove-idea {
+  color: #c12e2a;
+}
+.idea-page #random-idea .layer .buy-idea {
+  color: #5cb85c;
+}
+.idea-page #random-idea .layer svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.idea-page #random-idea .layer:hover {
+  transform: rotate(0) !important;
+  transition-duration: 1.5s;
+  z-index: 1000 !important;
+  animation-play-state: paused;
+  box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.93);
+}
+.idea-page #random-idea .layer:hover .small-name-idea {
+  display: none;
+}
+.idea-page #random-idea .layer:hover .full-name-idea {
+  display: inline-block;
+}
+.idea-page #random-idea .layer:hover .remove-idea,
+.idea-page #random-idea .layer:hover .buy-idea {
+  display: inline-block;
+}
+.idea-page #random-idea .layer:hover .remove-idea:hover,
+.idea-page #random-idea .layer:hover .buy-idea:hover {
+  opacity: .83;
+}
+.modal-header .close {
+  margin-top: -40px;
+  outline: 0;
+}
+.login-modal .modal-dialog {
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  width: 398px;
+  height: 568px;
+  position: absolute;
+  left: 50%;
+  margin-left: -189px;
+  top: 50%;
+  margin-top: -289px;
+}
+@media (max-width: 767px) {
+  .login-modal .modal-dialog {
+    width: 320px;
+    margin-left: -160px;
+  }
+}
+@media (max-height: 567px) {
+  .login-modal .modal-dialog {
+    height: 100%;
+    top: 0;
+    margin-top: 0;
+  }
+}
+.login-modal .modal-dialog .modal-content {
+  height: 568px;
+  background-color: #333333;
+  box-shadow: none;
+  text-align: center;
+  color: #fff;
+}
+@media (max-height: 567px) {
+  .login-modal .modal-dialog .modal-content {
+    height: 100%;
+  }
+}
+.login-modal .modal-dialog .modal-content .modal-header {
+  padding: 50px 0 40px;
+  border-bottom: none;
+}
+@media (max-width: 767px) {
+  .login-modal .modal-dialog .modal-content .modal-header {
+    padding-bottom: 20px;
+  }
+}
+.login-modal .modal-dialog .modal-content .modal-header .close {
+  margin-right: 15px;
+  color: #ffffff;
+}
+.login-modal .modal-dialog .modal-content .modal-header .close:hover {
+  color: #ffffff;
+}
+.login-modal .modal-dialog .modal-content .modal-header .modal-title {
+  font-size: 3.5rem;
+  font-family: Roboto-thin;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+@media (max-width: 767px) {
+  .login-modal .modal-dialog .modal-content .modal-header .modal-title {
+    font-size: 2.4rem;
+  }
+}
+.login-modal .modal-dialog .modal-content form .modal-body {
+  padding-bottom: 0;
+}
+.login-modal .modal-dialog .modal-content form .modal-body .input-group input {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #2e2e2e;
+  border-radius: 4px;
+  background-color: #404040;
+  width: 347px;
+  height: 66px;
+  font-family: Roboto;
+  font-size: 1.8rem;
+  margin: 0 10px 5px;
+  box-shadow: none;
+}
+@media (max-width: 767px) {
+  .login-modal .modal-dialog .modal-content form .modal-body .input-group input {
+    margin-left: 0;
+    width: 287px;
+  }
+}
+.login-modal .modal-dialog .modal-content form .modal-footer {
+  border-top: none;
+  text-align: center;
+  padding: 0;
+}
+.login-modal .modal-dialog .modal-content form .modal-footer .btn {
+  width: 93px;
+  height: 64px;
+  font-family: Roboto-black;
+  font-size: 1.8rem;
+  color: #ffffff;
+  position: absolute;
+  top: 100%;
+  margin-top: -104px;
+  left: 50%;
+  margin-left: -46px;
+  background: #404040;
+  outline: none;
+}
+.login-modal .modal-dialog .modal-content form .modal-footer .btn:hover {
+  opacity: .57;
+}
+@media (max-height: 567px) {
+  .login-modal .modal-dialog .modal-content form .modal-footer .btn {
+    margin-top: -74px;
+  }
+}
+.loader {
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  background: #ccc;
+  z-index: 5000;
+  position: fixed;
+  top: 0;
+}
+.loader svg {
+  position: absolute;
+  top: 50%;
+}
+.auction-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+.auction-page .auction-header .title-idea {
+  height: 500px;
+}
+.auction-page .auction-header .title-idea #envelope {
+  background: #F66B40;
+  width: 70%;
+  height: 320px;
+  position: absolute;
+  left: 27%;
+  top: 35%;
+  margin-left: -150px;
+  margin-top: -50px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.auction-page .auction-header .title-idea #envelope #lid {
+  position: relative;
+  top: -140px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 410px 140px;
+  border-color: transparent transparent #F66B40;
+}
+.auction-page .auction-header .title-idea #envelope #letter {
+  position: relative;
+  background: #ffcc80;
+  width: 90%;
+  margin: 0 auto;
+  height: 300px;
+  /* left: 10px; */
+  top: -250px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  transition-duration: 1.5s;
+}
+.auction-page .auction-header .title-idea #envelope #letter h2 {
+  color: #e93326;
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: Roboto;
+}
+.auction-page .auction-header .title-idea #envelope #letter:hover {
+  cursor: pointer;
+  top: -270px;
+}
+.auction-page .auction-header .title-idea #envelope #letter.payment {
+  top: -260px;
+  z-index: 5;
+  height: auto;
+}
+.auction-page .auction-header .title-idea #envelope #letter.payment:hover {
+  top: -260px;
+}
+.auction-page .auction-header .title-idea #envelope #left-corner {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 0 0 400px;
+  border-color: transparent transparent transparent #F66B40;
+}
+.auction-page .auction-header .title-idea #envelope #right-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 200px 400px;
+  border-color: transparent transparent #F66B40;
+}
+.auction-page .auction-header .title-idea .marks {
+  background: url(https://img0.etsystatic.com/110/0/11208571/il_570xN.1062279858_bnn8.jpg);
+  height: 150px;
+  width: 150px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  z-index: 2;
+  margin: 5px;
+}
+.auction-page .auction-header .title-idea .stamp {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  margin: 10px;
+  top: 50%;
+  left: 63%;
+}
+.auction-page .auction-header #payment-form .form-row {
+  margin: 5px;
+}
+.auction-page .auction-header #payment-form .form-row label {
+  width: 150px;
+  text-align: right;
+  color: #2e5ea8;
+  font-family: Roboto;
+  font-size: 1.6rem;
+}
+.auction-page .auction-header #payment-form .form-row .input-group {
+  width: 250px;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+  padding-left: 20px;
+}
+.auction-page .auction-header #payment-form .form-row .input-group input {
+  border: none;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.auction-page .auction-header #payment-form .submit {
+  font-family: Roboto;
+  font-size: 2rem;
+  color: #fff;
+  outline: 0;
+  height: 50px;
+  background: #2196f3;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+.auction-page .auction-header .input-group {
+  width: 250px;
+  margin: 0 auto;
+}
+.auction-page .auction-header .input-group .input-cash {
+  width: 250px;
+  height: 80px;
+  font-size: 3.2rem;
+  border-color: #ddd;
+  box-shadow: none;
+  border-width: 4px;
+}
+.auction-page .auction-header .input-group button {
+  height: 80px;
+  width: 80px;
+  outline: none;
+}
+.auction-page .auction-header .input-group button i {
+  font-size: 5rem;
+}
+.auction-page .auction-header .input-group button:hover {
+  opacity: .83;
+}
+.auction-page .progressBar {
+  margin-top: 20px;
+}
+.auction-page .table-responsive {
+  margin-top: 50px;
+}
+.auction-page .table-responsive .table > thead > tr > th {
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-width: 4px;
+  border-left: 4px solid #ddd;
+}
+.auction-page .table-responsive .table > tbody > tr > td,
+.auction-page .table-responsive .table > tbody > tr > th,
+.auction-page .table-responsive .table > tfoot > tr > td,
+.auction-page .table-responsive .table > tfoot > tr > th {
+  vertical-align: middle;
+  border-top: 4px solid #ddd;
+  font-size: 2rem;
+  height: 60px;
+}
+.account {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+.account .you-created,
+.account .you-purchased {
+  margin: 5% auto;
+}
+.account .you-created .title,
+.account .you-purchased .title {
+  display: inline-block;
+}
+.account .you-created .title .title-name,
+.account .you-purchased .title .title-name {
+  font-family: PatuaOne;
+  font-size: 3.5rem;
+}
+.account .you-created .search,
+.account .you-purchased .search {
+  display: inline-block;
+  width: 60%;
+  float: right;
+}
+.account .you-created .search .input-group,
+.account .you-purchased .search .input-group {
+  top: 4px;
+}
+.account .you-created .created-carousel,
+.account .you-purchased .created-carousel {
+  height: 350px;
+}
+.account .you-created .created-carousel .carousel-inner > .active,
+.account .you-purchased .created-carousel .carousel-inner > .active {
+  height: 300px;
+}
+.account .you-created .created-carousel .carousel-inner > .active .carousel-caption,
+.account .you-purchased .created-carousel .carousel-inner > .active .carousel-caption {
+  top: 5%;
+  padding-bottom: 30px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  border: 3px solid #000;
+  transition-duration: 1.5s;
+  height: 300px;
+}
+.account .you-created .created-carousel .carousel-inner > .active .carousel-caption h4,
+.account .you-purchased .created-carousel .carousel-inner > .active .carousel-caption h4 {
+  color: #ff3d00;
+  font-size: 4rem;
+  font-family: Roboto;
+}
+.account .you-created .created-carousel .carousel-inner > .active .carousel-caption p,
+.account .you-purchased .created-carousel .carousel-inner > .active .carousel-caption p {
+  color: #2196f3;
+  font-size: 1.8rem;
+  font-family: Roboto;
+}
+.account .you-created .created-carousel .carousel-control,
+.account .you-purchased .created-carousel .carousel-control {
+  color: #000;
+  background-image: none;
+}
+.account .you-created .created-carousel .carousel-indicators,
+.account .you-purchased .created-carousel .carousel-indicators {
+  top: 100%;
+  margin-top: 50px;
+}
+.account .you-created .created-carousel .carousel-indicators li,
+.account .you-purchased .created-carousel .carousel-indicators li {
+  background: #808080;
+}
+.account .you-created .created-carousel .carousel-indicators li.active,
+.account .you-purchased .created-carousel .carousel-indicators li.active {
+  background-color: #2196f3;
+}
+.account .you-created .panel-group .panel-title,
+.account .you-purchased .panel-group .panel-title {
+  padding: 0 2%;
+}
+.account .you-created .panel-group .panel-title a,
+.account .you-purchased .panel-group .panel-title a {
+  font-family: Roboto;
+  font-size: 2.5rem;
+}
+.account .you-created .panel-group .panel-title a:hover,
+.account .you-purchased .panel-group .panel-title a:hover {
+  text-decoration: none;
+  color: #ccc;
+}
+.account .you-created .panel-group .panel-title a:focus,
+.account .you-purchased .panel-group .panel-title a:focus {
+  text-decoration: none;
+}
+.account .you-created .panel-group .panel-title a.remove,
+.account .you-purchased .panel-group .panel-title a.remove {
+  float: right;
+  font-size: 2rem;
+  margin-top: 4px;
+  cursor: pointer;
+}

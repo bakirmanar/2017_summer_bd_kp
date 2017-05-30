@@ -1,0 +1,31 @@
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Log In Register</h4>
+    <p>Fill out all the fields  <br/>
+        and we will return your call within one hour</p>
+</div>
+
+
+
+<form ng-submit="signIn()">
+    <div class="modal-body">
+        <!-- input-group-->
+        <div class="input-group">
+            <input type="text" id="input-to-focus" class="form-control" placeholder="Your name" ng-model="userName">
+        </div>
+        <!-- end input-group-->
+        <!-- input-group-->
+        <div class="input-group">
+            <input type="password" class="form-control" placeholder="Enter your password" ng-model="password">
+        </div>
+        <!-- end input-group-->
+    </div>
+    <!-- end input-group-->
+    <!--modal-footer-->
+    <div class="modal-footer">
+        <button type="submit" class="btn you-color-big">Go</button>
+    </div>
+    <!-- end modal-footer-->
+</form>

@@ -1,0 +1,12 @@
+<div class="container" ng-submit="logIn(user)">
+    <form  class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="User name" ng-model="user.username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="user.password" required>
+        <span ng-if="errorMess" class="form-control error-message">Incorrect login or password  </span>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</div>

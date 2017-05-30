@@ -1,0 +1,21 @@
+{
+  "id": 123,
+  "tags":  ["tag1", "tag2", "tag3"],
+  "title": "title",
+  "description": "description",
+
+  "author":  { ... },
+  "verifications": [
+    { ... }
+  ],
+  "published": true,
+
+  "owner": { ... },
+  "mark": {
+    "like": true,
+    "reason": ""
+  },
+
+  "bids": [ ... ],
+}
+
