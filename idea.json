@@ -4,18 +4,18 @@
   "title": "title",
   "description": "description",
 
-  "author":  { ... },
+  "author":  {},
   "verifications": [
-    { ... }
+    {}
   ],
   "published": true,
 
-  "owner": { ... },
+  "owner": {},
   "mark": {
     "like": true,
     "reason": ""
   },
 
-  "bids": [ ... ],
+  "bids": []
 }
 

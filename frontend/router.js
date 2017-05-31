@@ -22,6 +22,15 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
                 }
             }
         })
+        .state('products', {
+          url: '/products',
+          views: {
+              '': {
+                  templateUrl: 'app/products/products.html',
+                  controller: 'productsPageController'
+              }
+          }
+        })
         .state('auction', {
             url: '/auction/:ideaId',
             views: {

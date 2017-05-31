@@ -41,6 +41,18 @@ app.use(session({saveUninitialized: true,
     secret: 'SECRET' }));
 auth.init(app);
 
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : '127.0.0.1',
+    user     : 'root',
+    password : 'кщще',
+    database : 'pharmacy'
+});
+
+
+
+connection.connect();
+
 /**
  * Charger
  *
@@ -90,6 +102,29 @@ app.post('/api/user', function (req, res) {
 });
 
 
+/***********************************************************
+ *
+ *           Products API
+ *
+ ***********************************************************/
+
+app.get('/api/products', function (req, res) {
+    var query = 'SELECT * FROM products';
+    return connection.query(query, function (error, results, fields) {
+        if (error) throw error;
+
+        return res.send(results);
+    });
+});
+app.post('/api/product', function (req, res) {
+    var query = 'INSERT INTO products VALUES(' + ')';
+    return connection.query(query, function (error, results, fields) {
+        if (error) throw error;
+
+        console.log('Tables: ', results);
+        return results;
+    });
+});
 
 app.listen(app.get('port'), function () {
     logger.info('Pharmacy server is up on port:' + app.get('port'));

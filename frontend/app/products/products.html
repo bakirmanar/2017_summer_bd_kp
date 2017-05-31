@@ -1,0 +1,12 @@
+<table ng-if="isDataLoaded">
+    <thead><tr>
+        <th>Name</th>
+        <th>Count</th>
+    </tr></thead>
+    <tbody>
+        <tr ng-repeat="product in products">
+            <td>{{product.name}}</td>
+            <td>{{product.count}}</td>
+        </tr>
+    </tbody>
+</table>
