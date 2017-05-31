@@ -117,13 +117,15 @@ app.get('/api/products', function (req, res) {
     });
 });
 app.post('/api/product', function (req, res) {
-    var query = 'INSERT INTO products VALUES(' + ')';
+    console.log(req.body);
+    /*var query = 'INSERT INTO products VALUES(' + ')';
     return connection.query(query, function (error, results, fields) {
         if (error) throw error;
 
         console.log('Tables: ', results);
         return results;
-    });
+    });*/
+    res.send("OK");
 });
 
 app.listen(app.get('port'), function () {

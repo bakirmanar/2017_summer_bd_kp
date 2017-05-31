@@ -9,4 +9,12 @@ app.service('productsService', ['apiUrl', '$http', function (apiUrl, $http) {
     })
   };
 
+  this.postProducts = function(product){
+    return $http({
+      method: "post",
+      url: apiUrl + "api/products",
+      body: product
+    })
+  };
+
 }]);
