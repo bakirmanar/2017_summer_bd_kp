@@ -45,7 +45,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
     host     : '127.0.0.1',
     user     : 'root',
-    password : 'кщще',
+    password : 'root',
     database : 'pharmacy'
 });
 
@@ -64,8 +64,6 @@ app.get('/api', function (req, res) {
 
     return res.send("Hello!!!");
 });
-
-
 
 
 /***********************************************************
@@ -117,15 +115,23 @@ app.get('/api/products', function (req, res) {
     });
 });
 app.post('/api/product', function (req, res) {
-    console.log(req.body);
-    /*var query = 'INSERT INTO products VALUES(' + ')';
+    if (!req.body || !req.body.name){
+        return res.status(400).end();
+    }
+
+    var query = "INSERT INTO products (id, name, count) VALUES (";
+    query += "'pr" + Date.now() + "',";
+    query += "'" + req.body.name + "',";
+    query += req.body.count ? req.body.count : "0";
+    query += ")";
+
     return connection.query(query, function (error, results, fields) {
         if (error) throw error;
 
         console.log('Tables: ', results);
-        return results;
-    });*/
-    res.send("OK");
+        return res.send(results);
+    });
+
 });
 
 app.listen(app.get('port'), function () {
