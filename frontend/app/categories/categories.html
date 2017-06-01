@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Name</th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="category in categories">
+                <td>{{$index + 1}}</td>
+                <td><input ng-model="category.name" ng-model-options="{ debounce: 2000 }"
+                           title="category name" ng-change="postCategory(category)" /></td>
+            </tr>
+            <tr>
+                <td>New category:</td>
+                <td><input ng-model="newCategory.name" title="new category name" ng-keydown="postNewCategory($event)" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

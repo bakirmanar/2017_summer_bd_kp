@@ -1,12 +1,15 @@
-<table ng-if="isDataLoaded">
-    <thead><tr>
-        <th>Name</th>
-        <th>Count</th>
-    </tr></thead>
-    <tbody>
+<div class="container">
+    <table class="table" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>Name</th>
+            <th>Count</th>
+        </tr></thead>
+        <tbody>
         <tr ng-repeat="product in products">
-            <td>{{product.name}}</td>
-            <td>{{product.count}}</td>
+            <td><input ng-model="product.name" title="category index" /></td>
+            <td><input ng-model="product.count" title="category index" /></td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+</div>

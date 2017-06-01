@@ -103,8 +103,7 @@ gulp.task('minHTML', function () {
 
 gulp.task('js', function () {
     gulp.src(SRC + '**/*.js')
-        .pipe(gulp.dest(DIST))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest(DIST));
 });
 
 gulp.task('libsJs', function () {
@@ -165,9 +164,9 @@ gulp.task('copy', function () {
 gulp.task('watch', function () {
     gulp.watch(SRC + 'assets/css/*.less', ['less']);
     gulp.watch(SRC + 'assets/css/*.css', ['css']);
-    gulp.watch(SRC + 'assets/js/*.js', ['js']);
-    gulp.watch(SRC + 'assets/js/*.js', ['jsMin']);
-    gulp.watch(SRC + '*.html', ['destHTML']);
+    gulp.watch(SRC + '**/*.js', ['js']);
+    gulp.watch(SRC + '**/*.js', ['jsMin']);
+    gulp.watch(SRC + '**/*.html', ['destHTML']);
 });
 
 gulp.task('server', function () {

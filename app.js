@@ -65,6 +65,8 @@ app.get('/api', function (req, res) {
     return res.send("Hello!!!");
 });
 
+require('./backend/cms/api/products')(app, connection);
+require('./backend/cms/api/categories')(app, connection);
 
 /***********************************************************
  *
@@ -100,39 +102,6 @@ app.post('/api/user', function (req, res) {
 });
 
 
-/***********************************************************
- *
- *           Products API
- *
- ***********************************************************/
-
-app.get('/api/products', function (req, res) {
-    var query = 'SELECT * FROM products';
-    return connection.query(query, function (error, results, fields) {
-        if (error) throw error;
-
-        return res.send(results);
-    });
-});
-app.post('/api/product', function (req, res) {
-    if (!req.body || !req.body.name){
-        return res.status(400).end();
-    }
-
-    var query = "INSERT INTO products (id, name, count) VALUES (";
-    query += "'pr" + Date.now() + "',";
-    query += "'" + req.body.name + "',";
-    query += req.body.count ? req.body.count : "0";
-    query += ")";
-
-    return connection.query(query, function (error, results, fields) {
-        if (error) throw error;
-
-        console.log('Tables: ', results);
-        return res.send(results);
-    });
-
-});
 
 app.listen(app.get('port'), function () {
     logger.info('Pharmacy server is up on port:' + app.get('port'));
