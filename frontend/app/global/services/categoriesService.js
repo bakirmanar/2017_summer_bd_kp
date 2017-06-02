@@ -16,4 +16,11 @@ app.service('categoriesService', ['apiUrl', '$http', function (apiUrl, $http) {
             data: data
         })
     };
+
+    this.deleteCategory = function(data){
+        return $http({
+            method: "delete",
+            url: apiUrl + "api/category/" + data.id
+        })
+    };
 }]);

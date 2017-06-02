@@ -31,4 +31,26 @@ module.exports = function (app, connection) {
             });
         });
     });
+
+    app.delete('/api/category/:id', function (req, res) {
+        var id = req.params.id;
+        if (!id){
+            return res.status(400).end();
+        }
+
+        var query = "SELECT * FROM categories WHERE id = '" + id + "'" ;
+        return connection.query(query, function (error, results, fields) {
+            if (results.length > 0){
+                console.log("DELETE");
+                query = "DELETE FROM categories WHERE id = '"+ id +"'";
+            } else {
+                return res.status(404).end();
+            }
+
+            return connection.query(query, function (error, results, fields) {
+                if (error) throw error;
+                return res.status(200).end();
+            });
+        });
+    });
 };

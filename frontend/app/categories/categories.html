@@ -9,6 +9,7 @@
                 <td>{{$index + 1}}</td>
                 <td><input ng-model="category.name" ng-model-options="{ debounce: 2000 }"
                            title="category name" ng-change="postCategory(category)" /></td>
+                <td><button ng-click="deleteCategory(category)">x</button></td>
             </tr>
             <tr>
                 <td>New category:</td>
