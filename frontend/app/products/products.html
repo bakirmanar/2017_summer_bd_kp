@@ -1,31 +1,35 @@
 <div class="container">
-    <table class="table" ng-if="isDataLoaded">
+    <table class="table table-condensed" ng-if="isDataLoaded">
         <thead><tr>
             <th>№</th>
             <th>Имя</th>
             <th>Кол-во</th>
             <th>Категория</th>
+            <th></th>
         </tr></thead>
         <tbody>
         <tr ng-repeat="product in products">
-            <td>{{$index + 1}}</td>
-            <td><input ng-model="product.name" title="Имя препарата"
+            <th>{{$index + 1}}</th>
+            <td><input class="form-control" ng-model="product.name" title="Имя препарата"
                        ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)"/></td>
-            <td><input ng-model="product.count" title="Количество"
+            <td><input class="form-control" ng-model="product.count" title="Количество"
                        ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)"/></td>
-            <td><select ng-model="product.category" title="Категория препарата"
+            <td><select class="form-control" ng-model="product.category" title="Категория препарата"
                         ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
                 <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
             </select></td>
-            <td><button ng-click="deleteProduct(product.id)">X</button></td>
+            <td><button class="btn btn-danger" ng-click="deleteProduct(product.id)">X</button></td>
         </tr>
         <tr>
-            <td>+</td>
-            <td><input ng-model="newProduct.name" title="Имя препарата" ng-keydown="saveNewProduct($event)" /></td>
-            <td><input ng-model="newProduct.count" title="Количество" ng-keydown="saveNewProduct($event)" /></td>
-            <td><select ng-model="newProduct.category" title="Категория препарата">
+            <th>+</th>
+            <td><input class="form-control" ng-model="newProduct.name" title="Имя препарата"
+                       ng-keydown="saveNewProduct($event)" /></td>
+            <td><input class="form-control" ng-model="newProduct.count" title="Количество"
+                       ng-keydown="saveNewProduct($event)" /></td>
+            <td><select class="form-control" ng-model="newProduct.category" title="Категория препарата">
                 <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
             </select></td>
+            <td><button class="btn btn-success" ng-click="saveNewProduct($event)">+</button></td>
         </tr>
         </tbody>
     </table>
