@@ -9,12 +9,18 @@ app.service('productsService', ['apiUrl', '$http', function (apiUrl, $http) {
     })
   };
 
-  this.postProducts = function(data){
+  this.postProduct = function(data){
     return $http({
       method: "post",
-      url: apiUrl + "api/products",
-      body: data
+      url: apiUrl + "api/product",
+      data: data
     })
   };
 
+  this.deleteProduct = function(id){
+    return $http({
+      method: "delete",
+      url: apiUrl + "api/product/" + id
+    })
+  };
 }]);

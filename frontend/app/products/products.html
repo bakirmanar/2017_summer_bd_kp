@@ -1,15 +1,32 @@
 <div class="container">
     <table class="table" ng-if="isDataLoaded">
         <thead><tr>
-            <th>Name</th>
-            <th>Count</th>
+            <th>№</th>
+            <th>Имя</th>
+            <th>Кол-во</th>
+            <th>Категория</th>
         </tr></thead>
         <tbody>
         <tr ng-repeat="product in products">
-            <td><input ng-model="product.name" title="category index" /></td>
-            <td><input ng-model="product.count" title="category index" /></td>
+            <td>{{$index + 1}}</td>
+            <td><input ng-model="product.name" title="Имя препарата"
+                       ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)"/></td>
+            <td><input ng-model="product.count" title="Количество"
+                       ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)"/></td>
+            <td><select ng-model="product.category" title="Категория препарата"
+                        ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
+                <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+            </select></td>
+            <td><button ng-click="deleteProduct(product.id)">X</button></td>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td><input ng-model="newProduct.name" title="Имя препарата" ng-keydown="saveNewProduct($event)" /></td>
+            <td><input ng-model="newProduct.count" title="Количество" ng-keydown="saveNewProduct($event)" /></td>
+            <td><select ng-model="newProduct.category" title="Категория препарата">
+                <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+            </select></td>
         </tr>
         </tbody>
     </table>
-
 </div>

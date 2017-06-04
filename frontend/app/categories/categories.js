@@ -6,7 +6,7 @@ app.controller('categoriesPageController', ['categoriesService', '$scope', funct
     };
     $scope.resetNewCategory();
     $scope.isDataLoaded = false;
-    $scope.categories =[];
+    $scope.categories = [];
 
     categoriesService.getCategories().then(function (response) {
         $scope.categories = response.data;
@@ -17,17 +17,17 @@ app.controller('categoriesPageController', ['categoriesService', '$scope', funct
         return categoriesService.postCategory(data);
     };
 
-    $scope.deleteCategory = function (data) {
-        return categoriesService.deleteCategory(data).then(function (response) {
-            var id = findCategoryById(data.id);
-            if(id !== -1){
-                $scope.categories.splice(id, 1);
+    $scope.deleteCategory = function (id) {
+        return categoriesService.deleteCategory(id).then(function (response) {
+            var index = findCategoryById(id);
+            if (index !== -1) {
+                $scope.categories.splice(index, 1);
             }
         });
     };
 
     $scope.postNewCategory = function ($event) {
-        if($event.keyCode === 13) {
+        if ($event.keyCode === 13) {
             categoriesService.postCategory($scope.newCategory).then(function (response) {
                 console.log(response);
                 $scope.categories.push(response.data.body);
@@ -36,10 +36,10 @@ app.controller('categoriesPageController', ['categoriesService', '$scope', funct
         }
     };
 
-    function findCategoryById (id) {
+    function findCategoryById(id) {
         var index = -1;
         for (var i = 0; i < $scope.categories.length; i++) {
-            if ($scope.categories[i].id === id){
+            if ($scope.categories[i].id === id) {
                 index = i;
             }
         }
