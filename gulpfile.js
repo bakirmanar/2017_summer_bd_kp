@@ -140,6 +140,7 @@ gulp.task('jsMin', function () {
         './bower_components/angular-socket-io/socket.min.js',
         './bower_components/less/dist/less.min.js',
         './bower_components/parallax/deploy/jquery.parallax.min.js',
+        './node_modules/angular-ui-notification/dist/angular-ui-notification.min.js',
         SRC + 'assets/js/scripts.js',
         SRC + 'assets/js/libs/*.js']);
 

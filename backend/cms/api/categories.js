@@ -13,7 +13,7 @@ module.exports = function (app, connection) {
   app.post('/api/category', function (req, res) {
     var body = req.body;
     if (!body || !body.name) {
-      return res.status(400).end();
+      return res.status(400).send({error: "Bad request: 'Name' is required"});
     }
     body.id = body.id || "ct" + Date.now();
 
@@ -37,7 +37,7 @@ module.exports = function (app, connection) {
   app.delete('/api/category/:id', function (req, res) {
     var id = req.params.id;
     if (!id) {
-      return res.status(400).end();
+      return res.status(400).send({error: "Bad request: 'ID' is required"});
     }
 
     var query = queryBuilder.select("categories", "*", {id: id});
@@ -46,7 +46,7 @@ module.exports = function (app, connection) {
         console.log("DELETE");
         query = queryBuilder.delete("categories", {id: id});
       } else {
-        return res.status(404).end();
+        return res.status(404).send({error: "Not found"});
       }
 
       return connection.query(query, function (error, results, fields) {
