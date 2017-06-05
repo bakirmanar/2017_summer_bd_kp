@@ -45,7 +45,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
     host     : '127.0.0.1',
     user     : 'root',
-    password : 'кщще',
+    password : 'root',
     database : 'pharmacy'
 });
 
@@ -53,20 +53,13 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-/**
- * Charger
- *
- * */
-require('./backend/cms/stripe')(app);
-
 app.get('/api', function (req, res) {
     logger.info('hello world!');
 
     return res.send("Hello!!!");
 });
 
-require('./backend/cms/api/products')(app, connection);
-require('./backend/cms/api/categories')(app, connection);
+require('./backend/cms/api/module')(app, connection);
 
 /***********************************************************
  *
