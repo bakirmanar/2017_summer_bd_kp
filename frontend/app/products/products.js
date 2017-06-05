@@ -1,4 +1,4 @@
-app.controller('productsPageController', function ($scope, productsService, categoriesService, Notification) {
+app.controller('productsPageController', function ($scope, productsService, categoriesService, producersService, providersService, Notification) {
 
   $scope.isDataLoaded = false;
   $scope.resetNewProduct = function () {
@@ -19,6 +19,10 @@ app.controller('productsPageController', function ($scope, productsService, cate
 
   producersService.getProducers().then(function (response) {
     $scope.producers = response.data;
+  });
+
+  providersService.getProviders().then(function (response) {
+    $scope.providers = response.data;
   });
 
   $scope.saveProduct = function (data) {
