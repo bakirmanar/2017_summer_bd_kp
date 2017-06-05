@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Name</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="storage in storages">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" ng-model="storage.name" title="storage name"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveStorage(storage)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteStorage(storage.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" ng-model="newStorage.name" title="new storage name"
+                           ng-keydown="saveNewStorage($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewStorage($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -40,13 +40,31 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
               }
           }
         })
-        .state('auction', {
-            url: '/auction/:ideaId',
-            views: {
-                '': {
-                    templateUrl: 'app/auction/auction.html',
-                    controller: 'auctionPageController'
-                }
+        .state('producers', {
+          url: '/producers',
+          views: {
+            '': {
+              templateUrl: 'app/producers/producers.html',
+              controller: 'producersPageController'
             }
-        });
+          }
+        })
+        .state('providers', {
+          url: '/providers',
+          views: {
+            '': {
+              templateUrl: 'app/providers/providers.html',
+              controller: 'providersPageController'
+            }
+          }
+        })
+        .state('storages', {
+          url: '/storages',
+          views: {
+            '': {
+              templateUrl: 'app/storages/storages.html',
+              controller: 'storagesPageController'
+            }
+          }
+        })
 }]);

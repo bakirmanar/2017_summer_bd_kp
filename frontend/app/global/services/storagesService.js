@@ -9,7 +9,7 @@ app.service('storagesService', ['apiUrl', '$http', function (apiUrl, $http) {
         })
     };
 
-    this.postCategory = function(data){
+    this.postStorage = function(data){
         return $http({
             method: "post",
             url: apiUrl + "api/storage",
