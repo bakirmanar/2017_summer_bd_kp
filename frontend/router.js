@@ -1,18 +1,6 @@
 app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvider,  $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-        .state('main', {
-            url: '/',
-            views: {
-                '': {
-                    templateUrl: 'app/main/main.html',
-                    controller: 'mainPageController'
-                }
-            },
-            data: {
-                bodyClasses: 'default'
-            }
-        })
         .state('account', {
             url: '/account',
             views: {

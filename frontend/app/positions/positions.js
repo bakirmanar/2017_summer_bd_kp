@@ -1,4 +1,5 @@
-app.controller('positionsPageController', function ($scope, positionsService, Notification) {
+app.controller('positionsPageController', function ($scope, positionsService, Notification, $rootScope) {
+  $rootScope.currentPage = "Должности";
   $scope.resetNewPosition = function () {
     $scope.newPosition = {
       name: ""

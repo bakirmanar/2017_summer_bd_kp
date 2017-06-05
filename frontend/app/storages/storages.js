@@ -1,4 +1,5 @@
-app.controller('storagesPageController', function ($scope, storagesService, Notification) {
+app.controller('storagesPageController', function ($scope, $rootScope, storagesService, Notification) {
+  $rootScope.currentPage = "Склады";
   $scope.resetNewStorage = function () {
     $scope.newStorage = {
       name: ""

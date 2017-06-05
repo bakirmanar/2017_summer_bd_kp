@@ -1,4 +1,5 @@
-app.controller('categoriesPageController', function ($scope, categoriesService, Notification) {
+app.controller('categoriesPageController', function ($scope, categoriesService, Notification, $rootScope) {
+  $rootScope.currentPage = "Категории";
   $scope.resetNewCategory = function () {
     $scope.newCategory = {
       name: ""

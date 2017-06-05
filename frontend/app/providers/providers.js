@@ -1,4 +1,5 @@
-app.controller('providersPageController', function ($scope, providersService, Notification) {
+app.controller('providersPageController', function ($scope, $rootScope, providersService, Notification) {
+  $rootScope.currentPage = "Поставщики";
   $scope.resetNewProvider = function () {
     $scope.newProvider = {
       name: ""

@@ -1,4 +1,5 @@
-app.controller('producersPageController', function ($scope, producersService, Notification) {
+app.controller('producersPageController', function ($scope, producersService, Notification, $rootScope) {
+  $rootScope.currentPage = "Производители";
   $scope.resetNewProducer = function () {
     $scope.newProducer = {
       name: ""

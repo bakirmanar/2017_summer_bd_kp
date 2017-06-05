@@ -23,13 +23,14 @@
 
 
 </head>
-<body ng-controller="mainPageController">
+<body ng-controller="appController">
 
-    <nav class="navbar-login navbar-fixed-top">
-        <!--<cloud-menu></cloud-menu>-->
-    </nav>
+    <top-header></top-header>
 
-    <ui-view></ui-view>
+    <div class="content">
+        <ui-view></ui-view>
+    </div>
+
 
     <!-- #loader
     <div class="loader">
@@ -65,7 +66,6 @@
             crossorigin="anonymous"></script>
     <script src="assets/js/scripts.min.js"></script>
     <script src="assets/js/app.min.js"></script>
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
-app.controller('productsPageController', function ($scope, productsService, categoriesService, producersService, providersService, Notification) {
-
+app.controller('productsPageController', function ($scope, $rootScope, productsService, categoriesService, producersService, providersService, Notification) {
+  $rootScope.currentPage = "Товары";
   $scope.isDataLoaded = false;
   $scope.resetNewProduct = function () {
     $scope.newProduct = {
