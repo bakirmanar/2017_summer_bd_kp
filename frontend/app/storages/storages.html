@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Name</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="provider in providers">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" ng-model="provider.name" title="provider name"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveProvider(provider)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteProvider(provider.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" ng-model="newProvider.name" title="new provider name"
+                           ng-keydown="saveNewProvider($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewProvider($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
