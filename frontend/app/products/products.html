@@ -5,6 +5,7 @@
             <th>Имя</th>
             <th>Кол-во</th>
             <th>Категория</th>
+            <th>Производитель</th>
             <th></th>
         </tr></thead>
         <tbody>
@@ -17,6 +18,9 @@
             <td><select class="form-control" ng-model="product.category" title="Категория препарата"
                         ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
                 <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+            <td><select class="form-control" ng-model="product.producer" title="Производитель препарата"
+                        ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
+                <option ng-repeat="producer in producers" ng-value="producer.id">{{producer.name}}</option>
             </select></td>
             <td><button class="btn btn-danger" ng-click="deleteProduct(product.id)">X</button></td>
         </tr>
@@ -28,6 +32,9 @@
                        ng-keydown="saveNewProduct($event)" /></td>
             <td><select class="form-control" ng-model="newProduct.category" title="Категория препарата">
                 <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+            </select></td>
+            <td><select class="form-control" ng-model="newProduct.producer" title="Произвдитель препарата">
+                <option ng-repeat="producer in producers" ng-value="producer.id">{{producer.name}}</option>
             </select></td>
             <td><button class="btn btn-success" ng-click="saveNewProduct($event)">+</button></td>
         </tr>

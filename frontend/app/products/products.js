@@ -17,6 +17,10 @@ app.controller('productsPageController', function ($scope, productsService, cate
     $scope.categories = response.data;
   });
 
+  producersService.getProducers().then(function (response) {
+    $scope.producers = response.data;
+  });
+
   $scope.saveProduct = function (data) {
     productsService.postProduct(data).then(function (response) {
       Notification.success("Изменения сохранены");

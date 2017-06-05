@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Name</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="producer in producers">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" ng-model="producer.name" title="producer name"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveProducer(producer)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteProducer(producer.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" ng-model="newProducer.name" title="new producer name"
+                           ng-keydown="saveNewProducer($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewProducer($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
