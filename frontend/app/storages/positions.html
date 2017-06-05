@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Name</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="position in positions">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" ng-model="position.name" title="position name"
+                           ng-model-options="{ debounce: 2000 }" ng-change="savePosition(position)" /></td>
+                <td><button class="btn btn-danger" ng-click="deletePosition(position.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" ng-model="newPosition.name" title="new position name"
+                           ng-keydown="saveNewPosition($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewPosition($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
