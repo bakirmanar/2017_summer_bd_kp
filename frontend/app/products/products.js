@@ -27,18 +27,18 @@ app.controller('productsPageController', function ($scope, $rootScope, productsS
 
   $scope.saveProduct = function (data) {
     productsService.postProduct(data).then(function (response) {
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
   };
 
   $scope.saveNewProduct = function ($event) {
-    if ($event.keyCode === 13) {
+    if ($event.type === "click" || $event.keyCode === 13) {
       productsService.postProduct($scope.newProduct).then(function (response) {
         $scope.products.push(response.data.body);
         $scope.resetNewProduct();
-        Notification.success("Изменения сохранены");
+        Notification.success("Новая запсь сохранена");
       }, function (response) {
         console.log(response);
         Notification.error(response.data.error);
@@ -52,7 +52,7 @@ app.controller('productsPageController', function ($scope, $rootScope, productsS
       if (index !== -1) {
         $scope.products.splice(index, 1);
       }
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });

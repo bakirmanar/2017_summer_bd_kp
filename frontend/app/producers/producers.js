@@ -16,7 +16,7 @@ app.controller('producersPageController', function ($scope, producersService, No
 
   $scope.saveProducer = function (data) {
     return producersService.postProducer(data).then(function (response) {
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
@@ -28,19 +28,19 @@ app.controller('producersPageController', function ($scope, producersService, No
       if (index !== -1) {
         $scope.producers.splice(index, 1);
       }
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
   };
 
   $scope.saveNewProducer = function ($event) {
-    if ($event.keyCode === 13) {
+    if ($event.type === "click" || $event.keyCode === 13) {
       producersService.postProducer($scope.newProducer).then(function (response) {
         console.log(response);
         $scope.producers.push(response.data.body);
         $scope.resetNewProducer();
-        Notification.success("Изменения сохранены");
+        Notification.success("Новая запсь сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

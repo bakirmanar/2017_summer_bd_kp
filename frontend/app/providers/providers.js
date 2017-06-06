@@ -16,7 +16,7 @@ app.controller('providersPageController', function ($scope, $rootScope, provider
 
   $scope.saveProvider = function (data) {
     return providersService.postProvider(data).then(function (response) {
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
@@ -28,19 +28,19 @@ app.controller('providersPageController', function ($scope, $rootScope, provider
       if (index !== -1) {
         $scope.providers.splice(index, 1);
       }
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
   };
 
   $scope.saveNewProvider = function ($event) {
-    if ($event.keyCode === 13) {
+    if ($event.type === "click" || $event.keyCode === 13) {
       providersService.postProvider($scope.newProvider).then(function (response) {
         console.log(response);
         $scope.providers.push(response.data.body);
         $scope.resetNewProvider();
-        Notification.success("Изменения сохранены");
+        Notification.success("Новая запсь сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

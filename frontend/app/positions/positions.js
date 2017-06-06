@@ -16,7 +16,7 @@ app.controller('positionsPageController', function ($scope, positionsService, No
 
   $scope.savePosition = function (data) {
     return positionsService.postPosition(data).then(function (response) {
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
@@ -28,19 +28,19 @@ app.controller('positionsPageController', function ($scope, positionsService, No
       if (index !== -1) {
         $scope.positions.splice(index, 1);
       }
-      Notification.success("Изменения сохранены");
+      Notification.info("Изменения сохранены");
     }, function (response) {
       Notification.error(response.data.error);
     });
   };
 
   $scope.saveNewPosition = function ($event) {
-    if ($event.keyCode === 13) {
+    if ($event.type === "click" || $event.keyCode === 13) {
       positionsService.postPosition($scope.newPosition).then(function (response) {
         console.log(response);
         $scope.positions.push(response.data.body);
         $scope.resetNewPosition();
-        Notification.success("Изменения сохранены");
+        Notification.success("Новая запсь сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });
