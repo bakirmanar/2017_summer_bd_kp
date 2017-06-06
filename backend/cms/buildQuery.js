@@ -40,8 +40,13 @@ var builder = {
         values = "";
 
     _.each(data, function (value, key) {
-      if (value) {
-        values += key + " = " + (typeof value === "string" ? ("'" + value + "'") : value) + ", ";
+      if (value || value === null) {
+        if (typeof value === "string") {
+          value = "'" + value + "'"
+        } else if (value === null || ""){
+          value = "NULL";
+        }
+        values += key + " = " + value + ", ";
       }
     });
     values = values.substr(0, values.length - 2);

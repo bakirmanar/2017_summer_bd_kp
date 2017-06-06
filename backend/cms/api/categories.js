@@ -19,6 +19,7 @@ module.exports = function (app, connection) {
 
     var query = queryBuilder.select("categories", "*", {id: body.id});
     return connection.query(query, function (error, results, fields) {
+      if (error) throw error;
       if (results.length > 0) {
         console.log("UPDATE");
         query = queryBuilder.update("categories", body, {id: body.id});
@@ -42,17 +43,24 @@ module.exports = function (app, connection) {
 
     var query = queryBuilder.select("categories", "*", {id: id});
     return connection.query(query, function (error, results, fields) {
+      if (error) throw error;
       if (results.length > 0) {
-        console.log("DELETE");
-        query = queryBuilder.delete("categories", {id: id});
+        query = queryBuilder.update("products", {category: null}, {category: id});
       } else {
         return res.status(404).send({error: "Not found"});
       }
 
       return connection.query(query, function (error, results, fields) {
         if (error) throw error;
-        return res.status(200).end();
+        console.log("DELETE");
+        query = queryBuilder.delete("categories", {id: id});
+
+        return connection.query(query, function (error, results, fields) {
+          if (error) throw error;
+          return res.status(200).end();
+        });
       });
+
     });
   });
 };

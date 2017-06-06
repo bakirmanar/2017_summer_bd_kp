@@ -15,10 +15,11 @@ module.exports = function (app, connection) {
     if (!body || !body.name) {
       return res.status(400).send({error: "Bad request: 'Name' is required"});
     }
-    body.id = body.id || "ct" + Date.now();
+    body.id = body.id || "pd" + Date.now();
 
     var query = queryBuilder.select("producers", "*", {id: body.id});
     return connection.query(query, function (error, results, fields) {
+      if (error) throw error;
       if (results.length > 0) {
         console.log("UPDATE");
         query = queryBuilder.update("producers", body, {id: body.id});
@@ -42,16 +43,22 @@ module.exports = function (app, connection) {
 
     var query = queryBuilder.select("producers", "*", {id: id});
     return connection.query(query, function (error, results, fields) {
+      if (error) throw error;
       if (results.length > 0) {
-        console.log("DELETE");
-        query = queryBuilder.delete("producers", {id: id});
+        query = queryBuilder.update("products", {producer: null}, {producer: id});
       } else {
         return res.status(404).send({error: "Not found"});
       }
 
       return connection.query(query, function (error, results, fields) {
         if (error) throw error;
-        return res.status(200).end();
+        console.log("DELETE");
+        query = queryBuilder.delete("producers", {id: id});
+
+        return connection.query(query, function (error, results, fields) {
+          if (error) throw error;
+          return res.status(200).end();
+        });
       });
     });
   });
