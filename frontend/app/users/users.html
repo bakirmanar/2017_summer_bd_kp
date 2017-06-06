@@ -1,0 +1,42 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            <th>Должность</th>
+            <th>Роль</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" ng-model="user.username" title="Логин"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveUser(user)" /></td>
+                <td><input class="form-control" ng-model="user.password" title="Пароль"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveUser(user)" /></td>
+                <td><select class="form-control" ng-model="user.position" title="Должность" ng-change="saveUser(user)">
+                    <option ng-repeat="position in positions" ng-value="position.id">{{position.name}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="user.role" title="Роль" ng-change="saveUser(user)">
+                    <option ng-repeat="role in roles" ng-value="role.name">{{role.displayName}}</option>
+                </select></td>
+                <td><button class="btn btn-danger" ng-click="deleteUser(user.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" ng-model="newUser.username" title="Логин"
+                           ng-keydown="saveNewUser($event)" /></td>
+                <td><input class="form-control" ng-model="newUser.password" title="Пароль"
+                           ng-keydown="saveNewUser($event)" /></td>
+                <td><select class="form-control" ng-model="newUser.position" title="Должность">
+                    <option ng-repeat="position in positions" ng-value="position.id">{{position.name}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="newUser.role" title="Роль">
+                    <option ng-repeat="role in roles" ng-value="role.name">{{role.displayName}}</option>
+                </select></td>
+                <td><button class="btn btn-success" ng-click="saveNewUser($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
