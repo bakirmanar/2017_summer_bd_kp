@@ -6,4 +6,5 @@ module.exports = function (app, connection) {
   require("./providers")(app, connection);
   require("./storages")(app, connection);
   require("./users")(app, connection);
+  require("./worktimeShedule")(app, connection);
 };

@@ -40,7 +40,7 @@ app.controller('categoriesPageController', function ($scope, categoriesService, 
         console.log(response);
         $scope.categories.push(response.data.body);
         $scope.resetNewCategory();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

@@ -161,14 +161,7 @@ gulp.task('copy', function () {
 
 });
 
-// Watch
-gulp.task('watch', function () {
-    gulp.watch(SRC + 'assets/css/*.less', ['less']);
-    gulp.watch(SRC + 'assets/css/*.css', ['css']);
-    gulp.watch(SRC + '**/*.js', ['js']);
-    gulp.watch(SRC + '**/*.js', ['jsMin']);
-    gulp.watch(SRC + '**/*.html', ['destHTML']);
-});
+
 
 gulp.task('server', function () {
     browserSync.init({
@@ -187,9 +180,22 @@ gulp.task('server', function () {
 // Default
 var runSequence = require('run-sequence');
 
-gulp.task('default', ['server']);
 
-gulp.task('product', function () {
+
+gulp.task('build', function () {
     return runSequence(/*'w3cjs', 'lint',*/ 'clean', /*'minHTML',*/ 'destHTML', 'less', 'css', /*'lessMaps',*/ 'copy', /*'libsJs',*/ 'js', 'jsMin');
 });
 /*gulp.task('default', ['clean',  'html', 'css', 'fonts', 'imgMin','valid', 'js', 'watch' ]);*/
+
+// Watch
+gulp.task('watch', function () {
+  gulp.watch(SRC + 'assets/css/*.less', ['less']);
+  gulp.watch(SRC + 'assets/css/*.css', ['css']);
+  gulp.watch(SRC + '**/*.js', ['js']);
+  gulp.watch(SRC + '**/*.js', ['jsMin']);
+  gulp.watch(SRC + '**/*.html', ['destHTML']);
+});
+
+gulp.task('default', function () {
+  return runSequence('build', 'watch')
+});

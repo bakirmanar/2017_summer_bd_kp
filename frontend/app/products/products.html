@@ -19,6 +19,7 @@
             <td><select class="form-control" ng-model="product.category" title="Категория препарата"
                         ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
                 <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+            </select></td>
             <td><select class="form-control" ng-model="product.producer" title="Производитель препарата"
                         ng-model-options="{ debounce: 2000 }" ng-change="saveProduct(product)">
                 <option ng-repeat="producer in producers" ng-value="producer.id">{{producer.name}}</option>

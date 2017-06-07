@@ -40,7 +40,7 @@ app.controller('producersPageController', function ($scope, producersService, No
         console.log(response);
         $scope.producers.push(response.data.body);
         $scope.resetNewProducer();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

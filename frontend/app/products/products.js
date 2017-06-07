@@ -38,7 +38,7 @@ app.controller('productsPageController', function ($scope, $rootScope, productsS
       productsService.postProduct($scope.newProduct).then(function (response) {
         $scope.products.push(response.data.body);
         $scope.resetNewProduct();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         console.log(response);
         Notification.error(response.data.error);

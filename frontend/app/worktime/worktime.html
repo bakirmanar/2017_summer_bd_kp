@@ -1,0 +1,61 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th>№</th>
+            <th>Сотрудник</th>
+            <th>Дата от</th>
+            <th>Дата до</th>
+            <th>Рабочий график</th>
+            <th>Часов в день</th>
+            <th>Смена</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="worktime in worktimes">
+                <th>{{$index + 1}}</th>
+                <td><select class="form-control" ng-model="worktime.user" title="Сотрудник"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveWorktime(worktime)">
+                    <option ng-repeat="user in users" ng-value="category.id">{{worktime.name}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="worktime.date_from" ng-model-options="{ debounce: 2000 }"
+                           title="Дата от" ng-change="saveWorktime(worktime)" /></td>
+                <td><input class="form-control" type="date" ng-model="worktime.date_to" ng-model-options="{ debounce: 2000 }"
+                           title="Дата до" ng-change="saveWorktime(worktime)" /></td>
+                <td><select class="form-control" ng-model="worktime.work_schedule" title="Рабочий график"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveWorktime(worktime)">
+                    <option ng-repeat="workSchedule in workSchedules" ng-value="workSchedule">{{workSchedule}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="worktime.hours" title="Часов в день"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveWorktime(worktime)">
+                    <option ng-repeat="hour in workHours" ng-value="hour">{{hour}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="worktime.shift" title="Смена"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveWorktime(worktime)">
+                    <option ng-repeat="shift in workShifts" ng-value="shift">{{shift}}</option>
+                </select></td>
+                <td><button class="btn btn-danger" ng-click="deleteWorktime(worktime.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><select class="form-control" ng-model="newWorktime.user" title="Категория препарата">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="newWorktime.date_from"
+                           title="Дата от" ng-keydown="saveWorktime(worktime)" /></td>
+                <td><input class="form-control" type="date" ng-model="newWorktime.date_to"
+                           title="Дата до" ng-keydown="saveWorktime(worktime)" /></td>
+                <td><select class="form-control" ng-model="newWorktime.work_schedule" title="Рабочий график"
+                            ng-model-options="{ debounce: 2000 }">
+                    <option ng-repeat="workSchedule in workSchedules">{{workSchedule}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="newWorktime.hours" title="Часов в день">
+                    <option ng-repeat="hour in workHours">{{hour}}</option>
+                </select></td>
+                <td><select class="form-control" ng-model="newWorktime.shift" title="Смена">
+                    <option ng-repeat="shift in workShifts">{{shift}}</option>
+                </select></td>
+                <td><button class="btn btn-success" ng-click="saveNewWorktime($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

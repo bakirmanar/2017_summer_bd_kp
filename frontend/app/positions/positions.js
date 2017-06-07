@@ -40,7 +40,7 @@ app.controller('positionsPageController', function ($scope, positionsService, No
         console.log(response);
         $scope.positions.push(response.data.body);
         $scope.resetNewPosition();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

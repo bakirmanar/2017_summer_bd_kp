@@ -40,7 +40,7 @@ app.controller('storagesPageController', function ($scope, $rootScope, storagesS
         console.log(response);
         $scope.storages.push(response.data.body);
         $scope.resetNewStorage();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

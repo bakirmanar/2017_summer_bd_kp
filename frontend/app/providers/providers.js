@@ -40,7 +40,7 @@ app.controller('providersPageController', function ($scope, $rootScope, provider
         console.log(response);
         $scope.providers.push(response.data.body);
         $scope.resetNewProvider();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });

@@ -73,4 +73,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
         }
       }
     })
+    .state('worktime', {
+      url: '/worktime',
+      views: {
+        '': {
+          templateUrl: 'app/worktime/worktime.html',
+          controller: 'worktimePageController'
+        }
+      }
+    })
 }]);

@@ -50,7 +50,7 @@ app.controller('usersPageController', function ($scope, $rootScope, usersService
         console.log(response);
         $scope.users.push(response.data.body);
         $scope.resetNewUser();
-        Notification.success("Новая запсь сохранена");
+        Notification.success("Новая запись сохранена");
       }, function (response) {
         Notification.error(response.data.error);
       });
