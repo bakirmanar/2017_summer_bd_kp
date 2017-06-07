@@ -1,0 +1,36 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Сотрудник</th>
+            <th>Дата от</th>
+            <th>Дата до</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="vacation in vacations">
+                <th>{{$index + 1}}</th>
+                <td><select class="form-control" ng-model="vacation.user" title="Сотрудник"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveVacation(vacation)">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="vacation.date_from" ng-model-options="{ debounce: 2000 }"
+                           title="Дата от" ng-change="saveVacation(vacation)" /></td>
+                <td><input class="form-control" type="date" ng-model="vacation.date_to" ng-model-options="{ debounce: 2000 }"
+                           title="Дата до" ng-change="saveVacation(vacation)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteVacation(vacation.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><select class="form-control" ng-model="newVacation.user" title="Категория препарата">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="newVacation.date_from"
+                           title="Дата от" ng-keydown="saveVacation(vacation)" /></td>
+                <td><input class="form-control" type="date" ng-model="newVacation.date_to"
+                           title="Дата до" ng-keydown="saveVacation(vacation)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewVacation($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -15,7 +15,7 @@
                 <th>{{$index + 1}}</th>
                 <td><select class="form-control" ng-model="worktime.user" title="Сотрудник"
                             ng-model-options="{ debounce: 2000 }" ng-change="saveWorktime(worktime)">
-                    <option ng-repeat="user in users" ng-value="category.id">{{worktime.name}}</option>
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
                 </select></td>
                 <td><input class="form-control" type="date" ng-model="worktime.date_from" ng-model-options="{ debounce: 2000 }"
                            title="Дата от" ng-change="saveWorktime(worktime)" /></td>

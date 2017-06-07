@@ -82,4 +82,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
         }
       }
     })
+    .state('vacations', {
+      url: '/vacations',
+      views: {
+        '': {
+          templateUrl: 'app/vacations/vacations.html',
+          controller: 'vacationsPageController'
+        }
+      }
+    })
 }]);
