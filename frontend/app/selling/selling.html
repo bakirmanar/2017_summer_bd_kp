@@ -1,0 +1,65 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Товар</th>
+            <th>Дата</th>
+            <th>Сотрудник</th>
+            <th>Количество</th>
+            <th>Цена(1 уп.)</th>
+            <th>Общая цена</th>
+            <th>Тип продажи</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="item in sellings">
+                <th>{{$index + 1}}</th>
+                <td><ui-select ng-model="item.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="product.id as product in products | filter: $select.search">
+                        <div ng-bind="product.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="date" ng-model="item.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveSelling(item)" /></td>
+                <td><select class="form-control" ng-model="item.user" title="Сотрудник"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveSelling(item)">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="number" ng-model="item.count" ng-model-options="{ debounce: 2000 }"
+                           title="Количество" ng-change="saveSelling(item)" /></td>
+                <td><input class="form-control" type="number" ng-model="item.price" ng-model-options="{ debounce: 2000 }"
+                           title="Цена(1 уп.)" ng-change="saveSelling(item)" /></td>
+                <td><input class="form-control" type="number" title="Общая цена" readonly ng-value="item.count*item.price" /></td>
+                <td><select class="form-control" ng-model="item.type" title="Тип продажи"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveSelling(item)">
+                    <option ng-repeat="type in types" ng-value="type">{{type}}</option>
+                </select></td>
+                <td><button class="btn btn-danger" ng-click="deleteSelling(item.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><ui-select ng-model="newSelling.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item.id as item in products | filter: $select.search">
+                        <div ng-bind="item.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="date" ng-model="newSelling.date" title="Дата" /></td>
+                <td><select class="form-control" ng-model="newSelling.user" title="Сотрудник">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="number" ng-model="newSelling.count"
+                           title="Количество" ng-keydown="saveNewSelling($event)" /></td>
+                <td><input class="form-control" type="number" ng-model="newSelling.price"
+                           title="Цена(1 уп.)" ng-keydown="saveNewSelling($event)" /></td>
+                <td><input class="form-control" type="number" title="Общая цена" readonly
+                           ng-value="newSelling.count*newSelling.price" /></td>
+                <td><select class="form-control" ng-model="newSelling.type" title="Тип продажи">
+                    <option ng-repeat="type in types" ng-value="type">{{type}}</option>
+                </select></td>
+                <td><button class="btn btn-success" ng-click="saveNewSelling($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -9,4 +9,5 @@ module.exports = function (app, connection) {
   require("./worktimeShedule")(app, connection);
   require("./vacationsShedule")(app, connection);
   require("./timesheet")(app, connection);
+  require("./selling")(app, connection);
 };

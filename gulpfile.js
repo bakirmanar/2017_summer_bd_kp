@@ -51,7 +51,7 @@ gulp.task('css', function () {
     };
 
     function addCss(name) {
-        gulp.src([/*'./bower_components/bootstrap/dist/css/bootstrap.min.css',*/
+        gulp.src(['./node_modules/ui-select/dist/select.min.css',
             SRC + 'assets/css/' + name + '.css'])
             .pipe(gulp.dest(DIST + 'assets/css/'))
             .pipe(concatCss(name + '.min.css', options))
@@ -141,6 +141,7 @@ gulp.task('jsMin', function () {
         './bower_components/less/dist/less.min.js',
         './bower_components/parallax/deploy/jquery.parallax.min.js',
         './node_modules/angular-ui-notification/dist/angular-ui-notification.min.js',
+        './node_modules/ui-select/dist/select.min.js',
         SRC + 'assets/js/scripts.js',
         SRC + 'assets/js/libs/*.js']);
 

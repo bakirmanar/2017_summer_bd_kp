@@ -100,4 +100,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
         }
       }
     })
+    .state('selling', {
+      url: '/selling',
+      views: {
+        '': {
+          templateUrl: 'app/selling/selling.html',
+          controller: 'sellingPageController'
+        }
+      }
+    })
 }]);
