@@ -26,9 +26,9 @@
                     <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
                 </select></td>
                 <td><input class="form-control" type="date" ng-model="newVacation.date_from"
-                           title="Дата от" ng-keydown="saveVacation(vacation)" /></td>
+                           title="Дата от" ng-keydown="saveNewVacation($event)" /></td>
                 <td><input class="form-control" type="date" ng-model="newVacation.date_to"
-                           title="Дата до" ng-keydown="saveVacation(vacation)" /></td>
+                           title="Дата до" ng-keydown="saveNewVacation($event)" /></td>
                 <td><button class="btn btn-success" ng-click="saveNewVacation($event)">+</button></td>
             </tr>
         </tbody>

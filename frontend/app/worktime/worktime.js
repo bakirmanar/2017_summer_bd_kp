@@ -49,8 +49,12 @@ app.controller('worktimePageController', function ($scope, worktimesService, use
 
   $scope.saveNewWorktime = function ($event) {
     if ($event.type === "click" || $event.keyCode === 13) {
+      $scope.newWorktime.date_from = $filter('date')($scope.newWorktime.date_from, 'yyyy-MM-dd');
+      $scope.newWorktime.date_to = $filter('date')($scope.newWorktime.date_to, 'yyyy-MM-dd');
+
       worktimesService.postWorktime($scope.newWorktime).then(function (response) {
-        console.log(response);
+        response.data.body.date_from = new Date(response.data.body.date_from);
+        response.data.body.date_to = new Date(response.data.body.date_to);
         $scope.worktimes.push(response.data.body);
         $scope.resetNewWorktime();
         Notification.success("Новая запись сохранена");

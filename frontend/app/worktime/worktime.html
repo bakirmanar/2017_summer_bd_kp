@@ -1,7 +1,7 @@
 <div class="container">
     <table class="table table-condensed" ng-if="isDataLoaded">
         <thead><tr>
-            <th>№</th>
+            <th></th>
             <th>Сотрудник</th>
             <th>Дата от</th>
             <th>Дата до</th>
@@ -37,13 +37,13 @@
             </tr>
             <tr>
                 <th>+</th>
-                <td><select class="form-control" ng-model="newWorktime.user" title="Категория препарата">
+                <td><select class="form-control" ng-model="newWorktime.user" title="Сотрудник">
                     <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
                 </select></td>
                 <td><input class="form-control" type="date" ng-model="newWorktime.date_from"
-                           title="Дата от" ng-keydown="saveWorktime(worktime)" /></td>
+                           title="Дата от" ng-keydown="saveNewWorktime($event)" /></td>
                 <td><input class="form-control" type="date" ng-model="newWorktime.date_to"
-                           title="Дата до" ng-keydown="saveWorktime(worktime)" /></td>
+                           title="Дата до" ng-keydown="saveNewWorktime($event)" /></td>
                 <td><select class="form-control" ng-model="newWorktime.work_schedule" title="Рабочий график"
                             ng-model-options="{ debounce: 2000 }">
                     <option ng-repeat="workSchedule in workSchedules">{{workSchedule}}</option>

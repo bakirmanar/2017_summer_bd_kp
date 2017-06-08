@@ -1,0 +1,36 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Сотрудник</th>
+            <th>Дата</th>
+            <th>Часов</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="time in timesheet">
+                <th>{{$index + 1}}</th>
+                <td><select class="form-control" ng-model="time.user" title="Сотрудник"
+                            ng-model-options="{ debounce: 2000 }" ng-change="saveTimesheet(time)">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="time.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveTimesheet(time)" /></td>
+                <td><input class="form-control" type="number" ng-model="time.hours" ng-model-options="{ debounce: 2000 }"
+                           title="Часов" ng-change="saveTimesheet(time)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteTimesheet(time.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><select class="form-control" ng-model="newTimesheet.user" title="Сотрудник">
+                    <option ng-repeat="user in users" ng-value="user.id">{{user.username}}</option>
+                </select></td>
+                <td><input class="form-control" type="date" ng-model="newTimesheet.date"
+                           title="Дата" ng-keydown="saveNewTimesheet($event)" /></td>
+                <td><input class="form-control" type="number" ng-model="newTimesheet.hours"
+                           title="Часов" ng-keydown="saveNewTimesheet($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewTimesheet($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

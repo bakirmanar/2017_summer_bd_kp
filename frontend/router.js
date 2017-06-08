@@ -91,4 +91,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
         }
       }
     })
+    .state('timesheet', {
+      url: '/timesheet',
+      views: {
+        '': {
+          templateUrl: 'app/timesheet/timesheet.html',
+          controller: 'timesheetPageController'
+        }
+      }
+    })
 }]);
