@@ -118,4 +118,22 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
       }
     }
   })
+  .state('returns', {
+    url: '/returns',
+    views: {
+      '': {
+        templateUrl: 'app/returns/returns.html',
+        controller: 'returnsPageController'
+      }
+    }
+  })
+  .state('consignment_notes', {
+    url: '/consignment_notes',
+    views: {
+      '': {
+        templateUrl: 'app/c_notes/c_notes.html',
+        controller: 'c_notesPageController'
+      }
+    }
+  })
 }]);

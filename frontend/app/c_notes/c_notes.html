@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Дата</th>
+            <th>Серийный номер</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="c_note in c_notes">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" type="date" ng-model="c_note.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveC_note(c_note)" /></td>
+                <td><input class="form-control" ng-model="c_note.serial_number" title="Серийный номер"
+                           ng-model-options="{ debounce: 2000 }" ng-change="saveC_note(c_note)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteC_note(c_note.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" type="date" ng-model="newC_note.date" title="Дата"
+                           ng-keydown="saveNewC_note($event)" /></td>
+                <td><input class="form-control" ng-model="newC_note.serial_number" title="Серийный номер"
+                           ng-keydown="saveNewC_note($event)" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewC_note($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

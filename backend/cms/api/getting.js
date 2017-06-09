@@ -15,7 +15,7 @@ module.exports = function (app, connection) {
     if (!body || !body.product) {
       return res.status(400).send({error: "Bad request: 'Product' is required"});
     }
-    body.id = body.id || "ts" + Date.now();
+    body.id = body.id || "pg" + Date.now();
 
     var query = queryBuilder.select("products_getting", "*", {id: body.id});
     return connection.query(query, function (error, results, fields) {

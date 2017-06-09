@@ -1,0 +1,59 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Дата</th>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Серийный номер ТТН</th>
+            <th>Причина</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="item in returns">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" type="date" ng-model="item.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveReturn(item)" /></td>
+                <td><ui-select ng-model="item.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="product.id as product in products | filter: $select.search">
+                        <div ng-bind="product.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="item.count" ng-model-options="{ debounce: 2000 }"
+                           title="Количество" ng-change="saveReturn(item)" /></td>
+                <td><ui-select ng-model="item.c_note" theme="bootstrap" title="Серийный номер ТТН">
+                    <ui-select-match>{{$select.selected.serial_number}}</ui-select-match>
+                    <ui-select-choices repeat="c_note.id as c_note in c_notes | filter: $select.search">
+                        <div ng-bind="c_note.serial_number"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control"  ng-model="item.reason" ng-model-options="{ debounce: 2000 }"
+                           title="Причина" ng-change="saveReturn(item)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteReturn(item.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" type="date" ng-model="newReturn.date" title="Дата" /></td>
+                <td><ui-select ng-model="newReturn.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item.id as item in products | filter: $select.search">
+                        <div ng-bind="item.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="newReturn.count"
+                           title="Количество" ng-keydown="saveNewReturn($event)" /></td>
+                <td><ui-select ng-model="newReturn.c_note" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.serial_number}}</ui-select-match>
+                    <ui-select-choices repeat="c_note.id as c_note in c_notes | filter: $select.search">
+                        <div ng-bind="c_note.serial_number"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" ng-model="newReturn.reason"
+                           title="Причина" ng-keydown="saveNewReturn($event)" /></td>
+                </select></td>
+                <td><button class="btn btn-success" ng-click="saveNewReturn($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

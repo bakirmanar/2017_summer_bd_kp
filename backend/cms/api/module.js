@@ -10,5 +10,7 @@ module.exports = function (app, connection) {
   require("./vacationsShedule")(app, connection);
   require("./timesheet")(app, connection);
   require("./selling")(app, connection);
+  require("./returns")(app, connection);
   require("./getting")(app, connection);
+  require("./c_notes")(app, connection);
 };
