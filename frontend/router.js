@@ -136,4 +136,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
       }
     }
   })
+  .state('booking', {
+    url: '/booking',
+    views: {
+      '': {
+        templateUrl: 'app/booking/booking.html',
+        controller: 'bookingPageController'
+      }
+    }
+  })
 }]);

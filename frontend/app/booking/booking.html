@@ -1,0 +1,55 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
+            <th>Дата</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="item in bookings">
+                <th>{{$index + 1}}</th>
+                <td><ui-select ng-model="item.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="product.id as product in products | filter: $select.search">
+                        <div ng-bind="product.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="item.count" ng-model-options="{ debounce: 2000 }"
+                           title="Количество" ng-change="saveBooking(item)" /></td>
+                <td><input class="form-control" ng-model="item.first_name" ng-model-options="{ debounce: 2000 }"
+                           title="Имя" ng-change="saveBooking(item)" /></td>
+                <td><input class="form-control" ng-model="item.second_name" ng-model-options="{ debounce: 2000 }"
+                           title="Фамилия" ng-change="saveBooking(item)" /></td>
+                <td><input class="form-control" ng-model="item.phone" ng-model-options="{ debounce: 2000 }"
+                           title="Телефон" ng-change="saveBooking(item)" /></td>
+                <td><input class="form-control" type="date" ng-model="item.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveBooking(item)" /></td>
+                <td><button class="btn btn-danger" ng-click="deleteBooking(item.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><ui-select ng-model="newBooking.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="item.id as item in products | filter: $select.search">
+                        <div ng-bind="item.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="newBooking.count"
+                           title="Количество" ng-keydown="saveNewBooking($event)" /></td>
+                <td><input class="form-control" ng-model="newBooking.first_name"
+                           title="Имя" ng-keydown="saveNewBooking($event)" /></td>
+                <td><input class="form-control" ng-model="newBooking.second_name"
+                           title="Фамилия" ng-keydown="saveNewBooking($event)" /></td>
+                <td><input class="form-control" ng-model="newBooking.phone"
+                           title="Телефон" ng-keydown="saveNewBooking($event)" /></td>
+                <td><input class="form-control" type="date" ng-model="newBooking.date" title="Дата" /></td>
+                <td><button class="btn btn-success" ng-click="saveNewBooking($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
