@@ -2,7 +2,7 @@ app.controller('sellingPageController', function ($scope, $filter, sellingServic
   $rootScope.currentPage = "Продажи";
   $scope.resetNewSelling = function () {
     $scope.newSelling = {
-
+      date: new Date()
     }
   };
   $scope.resetNewSelling();

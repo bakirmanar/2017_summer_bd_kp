@@ -1,0 +1,53 @@
+<div class="container">
+    <table class="table table-condensed" ng-if="isDataLoaded">
+        <thead><tr>
+            <th></th>
+            <th>Дата</th>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Склад</th>
+            <th></th>
+        </tr></thead>
+        <tbody>
+            <tr ng-repeat="item in gettings">
+                <th>{{$index + 1}}</th>
+                <td><input class="form-control" type="date" ng-model="item.date" ng-model-options="{ debounce: 2000 }"
+                           title="Дата" ng-change="saveGetting(item)" /></td>
+                <td><ui-select ng-model="item.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="product.id as product in products | filter: $select.search">
+                        <div ng-bind="product.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="item.count" ng-model-options="{ debounce: 2000 }"
+                           title="Количество" ng-change="saveGetting(item)" /></td>
+                <td><ui-select ng-model="item.storage" theme="bootstrap" title="Склад">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="storage.id as storage in storages | filter: $select.search">
+                        <div ng-bind="storage.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><button class="btn btn-danger" ng-click="deleteGetting(item.id)">X</button></td>
+            </tr>
+            <tr>
+                <th>+</th>
+                <td><input class="form-control" type="date" ng-model="newGetting.date" title="Дата" /></td>
+                <td><ui-select ng-model="newGetting.product" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="product.id as product in products | filter: $select.search">
+                        <div ng-bind="product.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><input class="form-control" type="number" ng-model="newGetting.count"
+                           title="Количество" ng-keydown="saveNewGetting($event)" /></td>
+                <td><ui-select ng-model="newGetting.storage" theme="bootstrap" title="Товар">
+                    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="storage.id as storage in storages | filter: $select.search">
+                        <div ng-bind="storage.name"></div>
+                    </ui-select-choices>
+                </ui-select></td>
+                <td><button class="btn btn-success" ng-click="saveNewGetting($event)">+</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

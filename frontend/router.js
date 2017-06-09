@@ -101,12 +101,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
       }
     })
     .state('selling', {
-      url: '/selling',
-      views: {
-        '': {
-          templateUrl: 'app/selling/selling.html',
-          controller: 'sellingPageController'
-        }
+    url: '/selling',
+    views: {
+      '': {
+        templateUrl: 'app/selling/selling.html',
+        controller: 'sellingPageController'
       }
-    })
+    }
+  })
+  .state('getting', {
+    url: '/getting',
+    views: {
+      '': {
+        templateUrl: 'app/getting/getting.html',
+        controller: 'gettingPageController'
+      }
+    }
+  })
 }]);
