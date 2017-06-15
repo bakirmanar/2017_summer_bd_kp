@@ -1,4 +1,8 @@
-app.controller('producersPageController', function ($scope, producersService, Notification, $rootScope) {
+app.controller('producersPageController', function ($scope, $state, authService, producersService,  Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Производители";
   $scope.resetNewProducer = function () {
     $scope.newProducer = {

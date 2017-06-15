@@ -1,4 +1,8 @@
-app.controller('worktimePageController', function ($scope, worktimesService, usersService, Notification, $rootScope) {
+app.controller('worktimePageController', function ($scope, $state, authService, worktimesService, usersService, Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "График сменности";
   $scope.resetNewWorktime = function () {
     $scope.newWorktime = {

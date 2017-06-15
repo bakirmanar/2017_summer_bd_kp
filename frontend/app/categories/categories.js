@@ -1,4 +1,8 @@
-app.controller('categoriesPageController', function ($scope, categoriesService, Notification, $rootScope) {
+app.controller('categoriesPageController', function ($scope, $state, authService, categoriesService, Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Категории";
   $scope.resetNewCategory = function () {
     $scope.newCategory = {

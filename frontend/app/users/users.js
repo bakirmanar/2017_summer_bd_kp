@@ -1,4 +1,8 @@
-app.controller('usersPageController', function ($scope, $rootScope, usersService, positionsService, Notification) {
+app.controller('usersPageController', function ($scope, $rootScope, $state, authService, usersService, positionsService, Notification) {
+  if(!authService.hasRole('ADMIN')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Сотрудники";
   $scope.resetNewUser = function () {
     $scope.newUser = {

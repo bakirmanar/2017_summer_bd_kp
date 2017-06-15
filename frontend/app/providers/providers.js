@@ -1,4 +1,8 @@
-app.controller('providersPageController', function ($scope, $rootScope, providersService, Notification) {
+app.controller('providersPageController', function ($scope, $state, authService, $rootScope, providersService, Notification) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Поставщики";
   $scope.resetNewProvider = function () {
     $scope.newProvider = {

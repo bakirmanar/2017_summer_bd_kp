@@ -1,4 +1,8 @@
-app.controller('storagesPageController', function ($scope, $rootScope, storagesService, Notification) {
+app.controller('storagesPageController', function ($scope, $rootScope, $state, authService, storagesService, Notification) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Склады";
   $scope.resetNewStorage = function () {
     $scope.newStorage = {

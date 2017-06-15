@@ -58,7 +58,7 @@ var builder = {
         if (value) {
           conditions += key + " = " + (typeof value === "string" ? ("'" + value + "'") : value) + ", ";
         }
-      })
+      });
       conditions = conditions.substr(0, conditions.length - 2);
       query += conditions;
     }
@@ -79,10 +79,10 @@ var builder = {
       var conditions = " WHERE ";
       _.each(where, function (value, key) {
         if (value) {
-          conditions += key + " = " + (typeof value === "string" ? ("'" + value + "'") : value) + ", ";
+          conditions += key + " = " + (typeof value === "string" ? ("'" + value + "'") : value) + " AND ";
         }
       });
-      conditions = conditions.substr(0, conditions.length - 2);
+      conditions = conditions.substr(0, conditions.length - 4);
       query += conditions;
     }
 

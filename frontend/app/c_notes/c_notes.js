@@ -1,4 +1,6 @@
-app.controller('c_notesPageController', function ($scope, $filter, c_notesService, Notification, $rootScope) {
+app.controller('c_notesPageController', function ($scope, $filter, $state, authService, c_notesService, Notification, $rootScope) {
+
+
   $rootScope.currentPage = "Бланки строгой отчетности";
   $scope.resetNewC_note = function () {
     $scope.newC_note = {

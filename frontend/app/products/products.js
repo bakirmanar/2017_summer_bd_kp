@@ -1,4 +1,8 @@
-app.controller('productsPageController', function ($scope, $rootScope, productsService, categoriesService, producersService, providersService, Notification) {
+app.controller('productsPageController', function ($scope, $rootScope, $state, authService, productsService, categoriesService, producersService, providersService, Notification) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Товары";
   $scope.isDataLoaded = false;
   $scope.resetNewProduct = function () {

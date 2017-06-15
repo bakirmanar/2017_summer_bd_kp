@@ -1,4 +1,8 @@
-app.controller('timesheetPageController', function ($scope, $filter, timesheetService, usersService, Notification, $rootScope) {
+app.controller('timesheetPageController', function ($scope, $filter, $state, authService, timesheetService, usersService, Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN') || !authService.hasRole('MANAGER')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Табель учета";
   $scope.resetNewTimesheet = function () {
     $scope.newTimesheet = {

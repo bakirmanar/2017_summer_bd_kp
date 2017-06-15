@@ -1,15 +1,6 @@
 app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
-    .state('account', {
-      url: '/account',
-      views: {
-        '': {
-          templateUrl: 'app/account/account.html',
-          controller: 'accountPageController'
-        }
-      }
-    })
     .state('products', {
       url: '/products',
       views: {
@@ -142,6 +133,15 @@ app.config(['$stateProvider', '$urlRouterProvider', function config($stateProvid
       '': {
         templateUrl: 'app/booking/booking.html',
         controller: 'bookingPageController'
+      }
+    }
+  })
+  .state('login', {
+    url: '/login',
+    views: {
+      '': {
+        templateUrl: 'app/login/login.html',
+        controller: 'loginPageController'
       }
     }
   })

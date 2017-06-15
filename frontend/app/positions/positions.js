@@ -1,4 +1,8 @@
-app.controller('positionsPageController', function ($scope, positionsService, Notification, $rootScope) {
+app.controller('positionsPageController', function ($scope, $state, authService, positionsService, Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "Должности";
   $scope.resetNewPosition = function () {
     $scope.newPosition = {

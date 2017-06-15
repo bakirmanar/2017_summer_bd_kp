@@ -12,7 +12,7 @@
         <p class="page-name navbar-text" ng-bind="currentPage"></p>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-if="isLoggedIn()">
                 <li class="dropdown">
                     <button class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Управление данными<span class="caret"></span></button>
@@ -22,21 +22,22 @@
                         <li><a href="/#!/getting">Получение товара</a></li>
                         <li><a href="/#!/returns">Возвращение товара</a></li>
                         <li><a href="/#!/consignment_notes">Бланки строгой отчетности</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/#!/products">Товары</a></li>
-                        <li><a href="/#!/categories">Категории</a></li>
-                        <li><a href="/#!/producers">Производители</a></li>
-                        <li><a href="/#!/providers">Поставщики</a></li>
-                        <li><a href="/#!/storages">Склады</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="/#!/timesheet">Табель учета</a></li>
-                        <li><a href="/#!/worktime">График сменности</a></li>
-                        <li><a href="/#!/vacations">График отпусков</a></li>
-                        <li><a href="/#!/users">Сотрудники</a></li>
-                        <li><a href="/#!/positions">Должности</a></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')" role="separator" class="divider"></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')"><a href="/#!/products">Товары</a></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')"><a href="/#!/categories">Категории</a></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')"><a href="/#!/producers">Производители</a></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')"><a href="/#!/providers">Поставщики</a></li>
+                        <li ng-if="hasRole('ADMIN') || hasRole('MANAGER')"><a href="/#!/storages">Склады</a></li>
+                        <li ng-if="hasRole('ADMIN')" role="separator" class="divider"></li>
+                        <li ng-if="hasRole('ADMIN')"><a href="/#!/timesheet">Табель учета</a></li>
+                        <li ng-if="hasRole('ADMIN')"><a href="/#!/worktime">График сменности</a></li>
+                        <li ng-if="hasRole('ADMIN')"><a href="/#!/vacations">График отпусков</a></li>
+                        <li ng-if="hasRole('ADMIN')"><a href="/#!/users">Сотрудники</a></li>
+                        <li ng-if="hasRole('ADMIN')"><a href="/#!/positions">Должности</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Logout</a></li>
+                <li><button class="btn btn-default navbar-btn logout-button" ng-click="logout()">Logout</button></li>
+                <li><p class="page-name navbar-text" ng-bind="currentUser"></p></li>
             </ul>
         </div>
     </div>

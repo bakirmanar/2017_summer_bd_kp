@@ -1,4 +1,8 @@
-app.controller('vacationsPageController', function ($scope, $filter,  vacationsService, usersService, Notification, $rootScope) {
+app.controller('vacationsPageController', function ($scope, $filter, $state, authService, vacationsService, usersService, Notification, $rootScope) {
+  if(!authService.hasRole('ADMIN')){
+    $state.go('selling');
+  }
+
   $rootScope.currentPage = "График отпусков";
   $scope.resetNewVacation = function () {
     $scope.newVacation = {
